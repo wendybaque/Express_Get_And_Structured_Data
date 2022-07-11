@@ -1,0 +1,15 @@
+{
+  "id": 10,
+  "firstname": "Penni",
+  "lastname": "Mauchlen",
+  "company": "Analog Circuit Design manager",
+  "cars" : [ //That's on the cars Table
+    {
+      "id": 8,
+      "car_maker": "Toyota", //That's on the car_make table
+      "car_model": "Yaris", //That's on the car_model table
+      "car_color": "Blue",
+      "And so on with all properties": ""
+    }
+  ]
+}
