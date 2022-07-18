@@ -62,3 +62,5 @@ When done, check it on Postman;
 
 ** BONUS **
 Hard time for our back end developper. Your Front End partner found that you did a great job. Now, he or she would like the same model when fetching all the people and not only One.
+
+>> Link to the second part https://drive.google.com/file/d/16jAp6qDVplV089iaAAk65bZOZ6t8AFui/view?usp=sharing
