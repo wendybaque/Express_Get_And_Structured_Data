@@ -1,36 +1,31 @@
-import Counter from "@components/Counter";
-import logo from "@assets/logo.svg";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Home() {
+  const [peoples, setPeoples] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/peoples`)
+      .then((res) => setPeoples(res.data))
+      .catch((err) => console.error(err));
+  }, []);
   return (
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>Hello Vite + React !</p>
-
-      <Counter />
-
-      <p>
-        Edit <code>App.jsx</code> and save to test HMR updates.
-      </p>
-      <p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {" | "}
-        <a
-          className="App-link"
-          href="https://vitejs.dev/guide/features.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Vite Docs
-        </a>
-      </p>
-    </header>
+    <div>
+      <h1>LOL ! </h1>
+      {peoples.map((people) => (
+        <div>
+          <h3>
+            {people.firstname} - {people.lastname}
+          </h3>
+          <p>{people.company}</p>
+          {people.cars.map((car) => (
+            <div>
+              <h6>{car.car_vin}</h6>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
   );
 }

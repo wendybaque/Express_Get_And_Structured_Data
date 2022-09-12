@@ -19,16 +19,14 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "../public")));
 
 // Serve REACT APP
-app.use(express.static(path.join(__dirname, "..", "..", "frontend", "dist")));
+app.use(express.static(path.join(__dirname, "..", "..", "frontend")));
 
 // API routes
 app.use(router);
 
 // Redirect all requests to the REACT app
 app.get("*", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "..", "..", "frontend", "dist", "index.html")
-  );
+  res.sendFile(path.join(__dirname, "..", "..", "frontend", "index.html"));
 });
 
 // ready to export
