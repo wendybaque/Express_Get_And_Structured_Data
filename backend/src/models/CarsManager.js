@@ -17,6 +17,13 @@ class CarsManager extends AbstractManager {
     );
   }
 
+  // find(id) {
+  //   return this.connection.query(
+  //     `select id from  ${this.table} AS c INNER JOIN car_make AS cmk ON cmk.id = c.car_maker.id where c.id = ?`,
+  //     [id]
+  //   );
+  // }
+
   findAllById(id) {
     return this.connection
       .query(
