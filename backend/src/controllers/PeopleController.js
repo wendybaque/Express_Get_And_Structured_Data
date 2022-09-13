@@ -93,6 +93,23 @@ class PeopleController {
         res.sendStatus(500);
       });
   };
+
+  static add = async (req, res) => {
+    try {
+      const people = await models.people.insert(req.body);
+      console.log(people);
+      const cars = await Promise.all(
+        req.body.cars.map((car) =>
+          models.cars.insert({ ...car, people_id: people[0].insertId })
+        )
+      );
+      console.log(cars);
+      res.status(201).send({ ...req.body, id: people[0].insertId });
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
+  };
 }
 
 module.exports = PeopleController;

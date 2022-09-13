@@ -19,6 +19,7 @@ router.delete("/items/:id", ItemController.delete);
 
 router.get("/people", PeopleController.browse);
 router.get("/people/:id", PeopleController.read);
+router.post("/people", PeopleController.add);
 
 router.get("/maker", CarMakerController.browse);
 router.get("/maker/:id", CarMakerController.read);
@@ -28,6 +29,7 @@ router.get("/model/:id", CarModelController.read);
 
 router.get("/cars", CarsController.browse);
 router.get("/cars/:id", CarsController.read);
+router.post("/cars", CarsController.add);
 
 router.get("/fullPeople", PeopleController.fullPeople);
 router.get("/fullPeople/:id", printPeopleID, PeopleController.fullPeopleOne);

@@ -3,17 +3,10 @@ const AbstractManager = require("./AbstractManager");
 class CarMakerManager extends AbstractManager {
   static table = "car_make";
 
-  insert(item) {
+  // Tri par ordre alphabétique des constructeurs :
+  findAll() {
     return this.connection.query(
-      `insert into ${CarMakerManager.table} (title) values (?)`,
-      [item.title]
-    );
-  }
-
-  update(item) {
-    return this.connection.query(
-      `update ${CarMakerManager.table} set title = ? where id = ?`,
-      [item.title, item.id]
+      `select * from  ${this.table} ORDER BY car_maker`
     );
   }
 }

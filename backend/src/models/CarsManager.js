@@ -3,17 +3,26 @@ const AbstractManager = require("./AbstractManager");
 class CarsManager extends AbstractManager {
   static table = "cars";
 
-  insert(item) {
+  insert(car) {
     return this.connection.query(
-      `insert into ${CarsManager.table} (title) values (?)`,
-      [item.title]
+      `insert into ${CarsManager.table} (car_vin, car_color, car_city, car_country, car_year, people_id, car_maker_id, car_model_id,) values (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        car.car_vin,
+        car.car_color,
+        car.car_city,
+        car.car_country,
+        car.car_year,
+        car.people_id,
+        car.car_maker_id,
+        car.car_model_id,
+      ]
     );
   }
 
-  update(item) {
+  update(car) {
     return this.connection.query(
       `update ${CarsManager.table} set title = ? where id = ?`,
-      [item.title, item.id]
+      [car.title, car.id]
     );
   }
 

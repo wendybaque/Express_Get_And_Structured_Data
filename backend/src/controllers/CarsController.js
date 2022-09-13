@@ -28,6 +28,20 @@ class CarsController {
         res.sendStatus(500);
       });
   };
+
+  static add = (req, res) => {
+    const cars = req.body;
+    models.cars
+      .insert(cars)
+      .then(([result]) => {
+        // Créer des voitures
+        res.status(201).send({ ...cars, id: result.insertId });
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
 }
 
 module.exports = CarsController;
